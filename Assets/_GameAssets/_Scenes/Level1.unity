@@ -228,6 +228,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &250080713 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1905968739600862, guid: ed519b9f875e8466ebea5d55a6f754aa,
+    type: 2}
+  m_PrefabInternal: {fileID: 1971642321}
+--- !u!143 &250080714
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 250080713}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &272803934
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,7 +726,7 @@ MonoBehaviour:
   prefabProyectil: {fileID: 54723127534898458, guid: c92ba0a71d9a84f0eabf5c9827ac1181,
     type: 2}
   puntoDisparo: {fileID: 2070372171}
-  fuerzaDisparo: 20
+  fuerzaDisparo: 30
   tiempoEntreDisparos: 0.25
   tiempoRecarga: 1.5
   municionMaximaInventario: 32
@@ -862,7 +884,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &997407136 stripped
 Transform:
@@ -1450,9 +1472,21 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4378679083369050, guid: ed519b9f875e8466ebea5d55a6f754aa, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1905968739600862, guid: ed519b9f875e8466ebea5d55a6f754aa, type: 2}
+      propertyPath: m_TagString
+      value: Enemigo
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895635677320684, guid: ed519b9f875e8466ebea5d55a6f754aa,
+        type: 2}
+      propertyPath: prefabParticulasMuerte
+      value: 
+      objectReference: {fileID: 1527026162908206, guid: ab6ad2ddcd0ee4b8fb248165f25fe7e8,
+        type: 2}
+    m_RemovedComponents:
+    - {fileID: 143010253638679946, guid: ed519b9f875e8466ebea5d55a6f754aa, type: 2}
+    - {fileID: 136264442074160352, guid: ed519b9f875e8466ebea5d55a6f754aa, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ed519b9f875e8466ebea5d55a6f754aa, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2001385000 stripped
