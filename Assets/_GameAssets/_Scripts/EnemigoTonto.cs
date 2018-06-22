@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class EnemigoTonto : MonoBehaviour {
 
+    [Header("Movimiento")]
     [SerializeField] float velocidadMovimiento = 5;
     [SerializeField] float tiempoCambioDireccion = 3;
 
+    [Header("Ataque")]
+    [SerializeField] float distanciaAtaque = 5;
+    [SerializeField] int dañoAtaque = 10;
+
+    [Header("Particulas")]
     [SerializeField] GameObject prefabParticulasMuerte;
+    [SerializeField] GameObject prefabParticulasExplosion;
 
      CharacterController miCC;
 
@@ -18,14 +25,33 @@ public class EnemigoTonto : MonoBehaviour {
 
 	void Start () {
         InvokeRepeating("CambiarDireccionMovimiento", 0, tiempoCambioDireccion);
-		
-	}
-	
+    }
 	
 	void Update () {
         miCC.SimpleMove(this.transform.forward * velocidadMovimiento);
+        IntentarAtacarAlJugador();
 		
 	}
+
+    void IntentarAtacarAlJugador()
+    {
+        Jugador jugador = GameManager.jugador;
+        float distancia = Vector3.Distance(this.transform.position, jugador.transform.position);
+        if (distancia<distanciaAtaque)
+        {
+            AtaqueSuicida(jugador);
+        }
+    }
+
+    private void AtaqueSuicida(Jugador jugador)
+    {
+        jugador.RecibirDaño(dañoAtaque);
+        Instantiate(prefabParticulasExplosion,
+                    position: this.transform.position,
+                    rotation: Quaternion.identity);
+        Destroy(this.gameObject);
+    }
+
     void CambiarDireccionMovimiento()
     {
         float rotacionAleatoria = Random.Range(0, 360);
